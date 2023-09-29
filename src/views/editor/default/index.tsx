@@ -29,15 +29,13 @@ import MiniCalendar from 'components/calendar/MiniCalendar';
 import MiniStatistics from 'components/card/MiniStatistics';
 import IconBox from 'components/icons/IconBox';
 import { MdAddTask, MdAttachMoney, MdBarChart, MdFileCopy } from 'react-icons/md';
-import CheckTable from 'views/admin/rtl/components/CheckTable';
-import ComplexTable from 'views/admin/default/components/ComplexTable';
-import DailyTraffic from 'views/admin/default/components/DailyTraffic';
-import PieCard from 'views/admin/default/components/PieCard';
-import Tasks from 'views/admin/default/components/Tasks';
-import TotalSpent from 'views/admin/default/components/TotalSpent';
-import WeeklyRevenue from 'views/admin/default/components/WeeklyRevenue';
-import tableDataCheck from 'views/admin/default/variables/tableDataCheck';
-import tableDataComplex from 'views/admin/default/variables/tableDataComplex';
+import EditorArea from 'views/editor/default/components/EditorArea';
+import DailyTraffic from 'views/editor/default/components/DailyTraffic';
+import PieCard from 'views/editor/default/components/PieCard';
+import Tasks from 'views/editor/default/components/Tasks';
+import TotalSpent from 'views/editor/default/components/TotalSpent';
+import WeeklyRevenue from 'views/editor/default/components/WeeklyRevenue';
+import tableDataComplex from 'views/editor/default/variables/tableDataComplex';
 
 export default function UserReports() {
 	// Chakra Color Mode
@@ -108,28 +106,13 @@ export default function UserReports() {
 							icon={<Icon w='32px' h='32px' as={MdFileCopy} color={brandColor} />}
 						/>
 					}
-					name='Total Projects'
+					name='Total Words'
 					value='2935'
 				/>
 			</SimpleGrid>
 
-			<SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px' mb='20px'>
-				<TotalSpent />
-				<WeeklyRevenue />
-			</SimpleGrid>
-			<SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
-				<CheckTable tableData={tableDataCheck} />
-				<SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
-					<DailyTraffic />
-					<PieCard />
-				</SimpleGrid>
-			</SimpleGrid>
-			<SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
-				<ComplexTable tableData={tableDataComplex} />
-				<SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
-					<Tasks />
-					<MiniCalendar h='100%' minW='100%' selectRange={false} />
-				</SimpleGrid>
+			<SimpleGrid columns={{ base: 1, md: 1, xl: 1 }} gap='20px' mb='20px'>
+				<EditorArea />
 			</SimpleGrid>
 		</Box>
 	);

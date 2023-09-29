@@ -29,7 +29,7 @@ function AuthIllustration(props: { children: JSX.Element | string; illustrationB
 				justifyContent='start'
 				direction='column'>
 				<NavLink
-					to='/admin'
+					to='/editor'
 					style={() => ({
 						width: 'fit-content',
 						marginTop: '40px'

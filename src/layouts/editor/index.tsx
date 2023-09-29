@@ -1,10 +1,9 @@
 // Chakra imports
 import { Portal, Box, useDisclosure } from '@chakra-ui/react';
-import Footer from 'components/footer/FooterAdmin';
+import Footer from 'components/footer/FooterEditor';
 // Layout components
-import Navbar from 'components/navbar/NavbarRTL';
+import Navbar from 'components/navbar/NavbarEditor';
 import Sidebar from 'components/sidebar/Sidebar';
-import { RtlProvider } from 'components/rtlProvider/RtlProvider';
 import { SidebarContext } from 'contexts/SidebarContext';
 import { useState } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
@@ -18,7 +17,7 @@ export default function Dashboard(props: { [x: string]: any }) {
 	const [ toggleSidebar, setToggleSidebar ] = useState(false);
 	// functions for changing the states from components
 	const getRoute = () => {
-		return window.location.pathname !== '/rtl/full-screen-maps';
+		return window.location.pathname !== '/editor/full-screen-maps';
 	};
 	const getActiveRoute = (routes: RoutesType[]): string => {
 		let activeRoute = 'Default Brand Text';
@@ -49,17 +48,17 @@ export default function Dashboard(props: { [x: string]: any }) {
 	};
 	const getRoutes = (routes: RoutesType[]): any => {
 		return routes.map((route: RoutesType, key: any) => {
-			if (route.layout === '/rtl') {
+			if (route.layout === '/editor') {
 				return <Route path={route.layout + route.path} component={route.component} key={key} />;
 			} else {
 				return null;
 			}
 		});
 	};
-	document.documentElement.dir = 'rtl';
+	document.documentElement.dir = 'ltr';
 	const { onOpen } = useDisclosure();
 	return (
-		<RtlProvider>
+		<Box>
 			<SidebarContext.Provider
 				value={{
 					toggleSidebar,
@@ -67,7 +66,7 @@ export default function Dashboard(props: { [x: string]: any }) {
 				}}>
 				<Sidebar routes={routes} display='none' {...rest} />
 				<Box
-					float='left'
+					float='right'
 					minHeight='100vh'
 					height='100%'
 					overflow='auto'
@@ -83,7 +82,7 @@ export default function Dashboard(props: { [x: string]: any }) {
 						<Box>
 							<Navbar
 								onOpen={onOpen}
-								logoText={'Horizon UI Dashboard'}
+								logoText={'Horizon UI Dashboard PRO'}
 								brandText={getActiveRoute(routes)}
 								secondary={getActiveNavbar(routes)}
 								message={getActiveNavbarText(routes)}
@@ -97,7 +96,7 @@ export default function Dashboard(props: { [x: string]: any }) {
 						<Box mx='auto' p={{ base: '20px', md: '30px' }} pe='20px' minH='100vh' pt='50px'>
 							<Switch>
 								{getRoutes(routes)}
-								<Redirect from='/' to='/rtl/rtl-default' />
+								<Redirect from='/' to='/editor/default' />
 							</Switch>
 						</Box>
 					) : null}
@@ -106,6 +105,6 @@ export default function Dashboard(props: { [x: string]: any }) {
 					</Box>
 				</Box>
 			</SidebarContext.Provider>
-		</RtlProvider>
+		</Box>
 	);
 }
