@@ -47,5 +47,5 @@ Link to Doc: [ed eater estimate v0.1](.github/estimate_v0.1.pdf)
 
 - Harshit Raj (200433)
 - Rashmi G R (200772)
-- Akanksha Singh (200076)
+- Akanksha Singh (200070)
 - Abhimanyu Sethia (190023)
