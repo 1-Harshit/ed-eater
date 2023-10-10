@@ -36,7 +36,8 @@ export default function EditorArea(props: Props) {
 				contentEditable
 				m="15px"
 				borderRadius={5}
-				p="10px"
+				px="20px"
+				py="10px"
 				minHeight="30vh"
 				id="editor-main"
 				onInput={handleContentChange}
