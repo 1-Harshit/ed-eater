@@ -27,7 +27,7 @@ export default function Default() {
 			color={textColor}
 			bg={boxBg}
 		>
-			<Button color={textColor} onClick={OrderedList}>
+			<Button color={textColor} onClick={OrderedList} id="ordered-list-button">
 			<IconBox
 					icon={
 						<Icon
