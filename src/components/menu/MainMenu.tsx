@@ -14,11 +14,13 @@ import {
 } from '@chakra-ui/react';
 // Assets
 import {
+	AiOutlineSave,
+	AiOutlineFolderOpen,
+	AiOutlineExport,
+	AiOutlineClear
+} from 'react-icons/ai';
+import {
 	MdOutlineMoreHoriz,
-	MdOutlinePerson,
-	MdOutlineCardTravel,
-	MdOutlineLightbulb,
-	MdOutlineSettings
 } from 'react-icons/md';
 
 export default function Banner(props: { [x: string]: any }) {
@@ -38,6 +40,66 @@ export default function Banner(props: { [x: string]: any }) {
 
 	// Ellipsis modals
 	const { isOpen: isOpen1, onOpen: onOpen1, onClose: onClose1 } = useDisclosure();
+
+	const handleSave = (contentToSave: string | undefined) => {
+		//Check for content
+		if (contentToSave) {
+			const blob = new Blob([contentToSave], { type: "text/plain" });
+	
+			const fileName = "ed-eater.txt";
+	
+			const url = URL.createObjectURL(blob);
+
+			const a = document.createElement("a");
+			a.href = url;
+			a.download = fileName;
+			document.body.appendChild(a);
+			a.click();
+
+			URL.revokeObjectURL(url);
+			document.body.removeChild(a);
+		} else {
+			alert("There is no content to save.");
+		}
+	};	 
+
+	const handleOpen = () => {
+
+		const fileInput = document.getElementById("fileInput");
+		if (fileInput) {
+			fileInput.click();
+		}
+	};
+
+	const handleFileInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		
+		const file = event.target.files[0];
+	  
+		if (file) {
+			const reader = new FileReader();
+		
+			reader.onload = (e) => {
+				const fileContent = e.target.result;
+
+				const editorElement = document.getElementById("editor-main");
+				if (editorElement) {
+					editorElement.textContent = fileContent.toString();
+				}
+			};
+		
+			reader.readAsText(file);
+		}
+	};
+	  
+	
+	const handleClear = () => {
+
+		const editorContent = document.getElementById("editor-main");
+		//Check for content
+		if (editorContent) {
+			editorContent.textContent = "";
+		}
+	};
 
 	return (
 		<Menu isOpen={isOpen1} onClose={onClose1}>
@@ -78,11 +140,39 @@ export default function Banner(props: { [x: string]: any }) {
 					_focus={{
 						bg: 'transparent'
 					}}
-					mb='10px'>
+					mb='10px'
+					onClick={() => {
+						const editorContent = document.getElementById("editor-main")?.innerText;
+						handleSave(editorContent);
+					  }}
+					>
 					<Flex align='center'>
-						<Icon as={MdOutlinePerson} h='16px' w='16px' me='8px' />
+						<Icon as={AiOutlineSave} h='16px' w='16px' me='8px' />
 						<Text fontSize='sm' fontWeight='400'>
-							Panel 1
+							Save
+						</Text>
+					</Flex>
+				</MenuItem>
+				<MenuItem
+					transition='0.2s linear'
+					p='0px'
+					borderRadius='8px'
+					color={textColor}
+					_hover={textHover}
+					_active={{
+						bg: 'transparent'
+					}}
+					_focus={{
+						bg: 'transparent'
+					}}
+					mb='10px'
+					onClick={handleOpen}
+					>
+					<input type="file" accept=".txt" id="fileInput" style={{ display: "none" }} onChange={handleFileInputChange}/>
+					<Flex align='center'>
+						<Icon as={AiOutlineFolderOpen} h='16px' w='16px' me='8px' />
+						<Text fontSize='sm' fontWeight='400'>
+							Open
 						</Text>
 					</Flex>
 				</MenuItem>
@@ -100,29 +190,9 @@ export default function Banner(props: { [x: string]: any }) {
 					}}
 					mb='10px'>
 					<Flex align='center'>
-						<Icon as={MdOutlineCardTravel} h='16px' w='16px' me='8px' />
+						<Icon as={AiOutlineExport} h='16px' w='16px' me='8px' />
 						<Text fontSize='sm' fontWeight='400'>
-							Panel 2
-						</Text>
-					</Flex>
-				</MenuItem>
-				<MenuItem
-					transition='0.2s linear'
-					p='0px'
-					borderRadius='8px'
-					color={textColor}
-					_hover={textHover}
-					_active={{
-						bg: 'transparent'
-					}}
-					_focus={{
-						bg: 'transparent'
-					}}
-					mb='10px'>
-					<Flex align='center'>
-						<Icon as={MdOutlineLightbulb} h='16px' w='16px' me='8px' />
-						<Text fontSize='sm' fontWeight='400'>
-							Panel 3
+							Export As
 						</Text>
 					</Flex>
 				</MenuItem>
@@ -137,11 +207,12 @@ export default function Banner(props: { [x: string]: any }) {
 					}}
 					_focus={{
 						bg: 'transparent'
-					}}>
+					}}
+					onClick={handleClear}>
 					<Flex align='center'>
-						<Icon as={MdOutlineSettings} h='16px' w='16px' me='8px' />
+						<Icon as={AiOutlineClear} h='16px' w='16px' me='8px' />
 						<Text fontSize='sm' fontWeight='400'>
-							Panel 4
+							Clear Editor
 						</Text>
 					</Flex>
 				</MenuItem>
