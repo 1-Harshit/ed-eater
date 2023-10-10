@@ -13,9 +13,10 @@ import Card from "components/card/Card";
 import BoldButton from "components/button/BoldButton";
 import ItalicButton from "components/button/ItalicButton";
 import UnderlineButton from "components/button/UnderlineButton";
-import AlignLeftButton from "components/button/AlignLeftButton"
+import AlignLeftButton from "components/button/AlignLeftButton";
 import AlignCenterButton from "components/button/AlignCenterButton";
 import AlignRightButton from "components/button/AlignRightButton";
+import AlignJustifyButton from "components/button/AlignJustifyButton";
 import OrderedList from "components/button/OrderedList";
 import UnorderedList from "components/button/UnorderedList";
 import IconBox from "components/icons/IconBox";
@@ -73,6 +74,7 @@ export default function Default(props: { name: string }) {
 							<AlignLeftButton />
 							<AlignCenterButton />
 							<AlignRightButton />
+							<AlignJustifyButton />
 							<OrderedList />
 							<UnorderedList />
 						</SimpleGrid>
