@@ -1,38 +1,38 @@
 // Chakra imports
 import { useColorModeValue, Button, Tooltip } from "@chakra-ui/react";
-import { MdFormatAlignCenter } from "react-icons/md";
+import { MdFormatAlignJustify } from "react-icons/md";
 import IconBox from "components/icons/IconBox";
-import {Icon} from "@chakra-ui/icons";
+import { Icon } from "@chakra-ui/icons";
 // Custom components
 
 export default function Default() {
 	const textColor = useColorModeValue("secondaryGray.900", "white");
 	const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
 
-	const handleAlignCenterClick = () => {
-		if (document.queryCommandSupported("justifyCenter")) {
-			document.execCommand("justifyCenter", false, null);
+	const handleAlignJustifyClick = () => {
+		if (document.queryCommandSupported("justifyFull")) {
+			document.execCommand("justifyFull", false, null);
 		} else {
 			document.execCommand("styleWithCSS", false, "true");
-			document.execCommand("justifyCenter", false, null);
+			document.execCommand("justifyFull", false, null);
 			document.execCommand("styleWithCSS", false, "false");
 		}
 	};
 
 	return (
 		<Tooltip
-			label="Align Center"
-			aria-label="Align Center"
+			label="Justify Align"
+			aria-label="Justify Align"
 			color={textColor}
 			bg={boxBg}
 		>
-			<Button color={textColor} onClick={handleAlignCenterClick}>
+			<Button color={textColor} onClick={handleAlignJustifyClick}>
 				<IconBox
 					icon={
 						<Icon
 							w="18px"
 							h="18px"
-							as={MdFormatAlignCenter}
+							as={MdFormatAlignJustify}
 							color={textColor}
 						/>
 					}

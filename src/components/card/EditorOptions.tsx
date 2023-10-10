@@ -13,9 +13,10 @@ import Card from "components/card/Card";
 import BoldButton from "components/button/BoldButton";
 import ItalicButton from "components/button/ItalicButton";
 import UnderlineButton from "components/button/UnderlineButton";
-import JustifyLeftButton from "components/button/JustifyLeftButton"
-import JustifyCenterButton from "components/button/JustifyCenterButton";
-import JustifyRightButton from "components/button/JustifyRightButton";
+import AlignLeftButton from "components/button/AlignLeftButton";
+import AlignCenterButton from "components/button/AlignCenterButton";
+import AlignRightButton from "components/button/AlignRightButton";
+import AlignJustifyButton from "components/button/AlignJustifyButton";
 import OrderedList from "components/button/OrderedList";
 import UnorderedList from "components/button/UnorderedList";
 import FontSizeMenuButton from "components/button/FontSizeMenuButton";
@@ -71,9 +72,10 @@ export default function Default(props: { name: string }) {
 							<BoldButton />
 							<ItalicButton />
 							<UnderlineButton />
-							<JustifyLeftButton />
-							<JustifyCenterButton />
-							<JustifyRightButton />
+							<AlignLeftButton />
+							<AlignCenterButton />
+							<AlignRightButton />
+							<AlignJustifyButton />
 							<OrderedList />
 							<UnorderedList />
 							<FontSizeMenuButton />
