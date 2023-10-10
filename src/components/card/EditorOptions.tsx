@@ -18,6 +18,7 @@ import JustifyCenterButton from "components/button/JustifyCenterButton";
 import JustifyRightButton from "components/button/JustifyRightButton";
 import OrderedList from "components/button/OrderedList";
 import UnorderedList from "components/button/UnorderedList";
+import FontSizeMenuButton from "components/button/FontSizeMenuButton";
 import IconBox from "components/icons/IconBox";
 import { MdEditDocument } from "react-icons/md";
 
@@ -75,6 +76,7 @@ export default function Default(props: { name: string }) {
 							<JustifyRightButton />
 							<OrderedList />
 							<UnorderedList />
+							<FontSizeMenuButton />
 						</SimpleGrid>
 					</StatNumber>
 				</Stat>
