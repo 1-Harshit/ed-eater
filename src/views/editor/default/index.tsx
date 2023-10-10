@@ -21,13 +21,20 @@
 */
 
 // Chakra imports
-import { Box, Icon, SimpleGrid, useColorModeValue } from "@chakra-ui/react";
+import {
+	Box,
+	Grid,
+	GridItem,
+	Icon,
+	SimpleGrid,
+	useColorModeValue,
+} from "@chakra-ui/react";
 // Assets
 // Custom components
 import MiniStatistics from "components/card/MiniStatistics";
 import EditorOptions from "components/card/EditorOptions";
 import IconBox from "components/icons/IconBox";
-import { MdAddTask, MdFileCopy } from "react-icons/md";
+import { MdFileCopy } from "react-icons/md";
 import EditorArea from "views/editor/default/components/EditorArea";
 import { useState } from "react";
 
@@ -46,42 +53,31 @@ export default function UserReports() {
 
 	return (
 		<Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
-			<SimpleGrid
-				columns={{ base: 1, md: 2, lg: 2, "2xl": 2 }}
+			<Grid
+				templateColumns="repeat(5, 1fr)"
 				gap="20px"
 				mb="20px"
 			>
-				<EditorOptions name="Editor Options" />
-
-				<MiniStatistics growth="+23%" name="Sales" value="$574.34" />
-
-				<MiniStatistics
-					startContent={
-						<IconBox
-							w="56px"
-							h="56px"
-							bg="linear-gradient(90deg, #4481EB 0%, #04BEFE 100%)"
-							icon={<Icon w="28px" h="28px" as={MdAddTask} color="white" />}
-						/>
-					}
-					name="New Tasks"
-					value="154"
-				/>
-				<MiniStatistics
-					startContent={
-						<IconBox
-							w="56px"
-							h="56px"
-							bg={boxBg}
-							icon={
-								<Icon w="32px" h="32px" as={MdFileCopy} color={brandColor} />
-							}
-						/>
-					}
-					name="Total Words"
-					value={wordCount}
-				/>
-			</SimpleGrid>
+				<GridItem colSpan={4}>
+					<EditorOptions name="Editor Options" />
+				</GridItem>
+				<GridItem colSpan={1}>
+					<MiniStatistics
+						startContent={
+							<IconBox
+								w="56px"
+								h="56px"
+								bg={boxBg}
+								icon={
+									<Icon w="32px" h="32px" as={MdFileCopy} color={brandColor} />
+								}
+							/>
+						}
+						name="Total Words"
+						value={wordCount}
+					/>
+				</GridItem>
+			</Grid>
 
 			<SimpleGrid columns={{ base: 1, md: 1, xl: 1 }} gap="20px" mb="20px">
 				<EditorArea handleContentChange={handleContentChange} />
