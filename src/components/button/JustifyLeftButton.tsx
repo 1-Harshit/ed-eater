@@ -1,6 +1,8 @@
 // Chakra imports
 import { useColorModeValue, Button, Tooltip } from "@chakra-ui/react";
 import { MdFormatAlignLeft } from "react-icons/md";
+import IconBox from "components/icons/IconBox";
+import {Icon} from "@chakra-ui/icons";
 // Custom components
 
 export default function Default() {

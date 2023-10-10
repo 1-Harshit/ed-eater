@@ -1,6 +1,8 @@
 // Chakra imports
 import { useColorModeValue, Button, Tooltip } from "@chakra-ui/react";
 import { MdFormatAlignCenter } from "react-icons/md";
+import IconBox from "components/icons/IconBox";
+import {Icon} from "@chakra-ui/icons";
 // Custom components
 
 export default function Default() {
@@ -19,12 +21,12 @@ export default function Default() {
 
 	return (
 		<Tooltip
-			label="Justify Center"
-			aria-label="Justify Center"
+			label="Align Center"
+			aria-label="Align Center"
 			color={textColor}
 			bg={boxBg}
 		>
-			<Button color={textColor} onClick={handleJustifyCenterClick}>
+			<Button color={textColor} onClick={handleAlignCenterClick}>
 				<IconBox
 					icon={
 						<Icon

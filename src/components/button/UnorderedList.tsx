@@ -1,6 +1,8 @@
 // Chakra imports
 import { useColorModeValue, Button, Tooltip } from "@chakra-ui/react";
 import { MdFormatListBulleted } from "react-icons/md";
+import IconBox from "components/icons/IconBox";
+import {Icon} from "@chakra-ui/icons";
 // Custom components
 
 export default function Default() {
@@ -25,7 +27,17 @@ export default function Default() {
 			bg={boxBg}
 		>
 			<Button color={textColor} onClick={UnorderedList}>
-				   <MdFormatListBulleted/>
+			<IconBox
+					icon={
+						<Icon
+							w="18px"
+							h="18px"
+							as={MdFormatListBulleted}
+							color={textColor}
+						/>
+					}
+				/>
+				   
 			</Button>
 		</Tooltip>
 	);
