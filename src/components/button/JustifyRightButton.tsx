@@ -8,7 +8,13 @@ export default function Default() {
 	const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
 
 	const handleJustifyRightClick = () => {
-		document.execCommand("justifyRight", true, "");
+		if (document.queryCommandSupported("justifyRight")) {
+			document.execCommand("justifyRight", false, null);
+		} else {
+			document.execCommand("styleWithCSS", false, "true");
+			document.execCommand("justifyRight", false, null);
+			document.execCommand("styleWithCSS", false, "false");
+		}
 	};
 
 	return (
