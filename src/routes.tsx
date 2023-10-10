@@ -1,11 +1,10 @@
 import { Icon } from '@chakra-ui/react';
-import { MdBarChart, MdPerson, MdHome, MdLock, MdOutlineShoppingCart } from 'react-icons/md';
+import { MdPerson, MdHome, MdLock, MdOutlineShoppingCart } from 'react-icons/md';
 
 // Editor Imports
 import MainDashboard from 'views/editor/default';
 import NFTMarketplace from 'views/editor/marketplace';
 import Profile from 'views/editor/profile';
-import DataTables from 'views/editor/dataTables';
 
 // Auth Imports
 import SignInCentered from 'views/auth/signIn';
@@ -28,13 +27,6 @@ const routes = [
 	},
 	{
 		name: 'Placeholder 2',
-		layout: '/editor',
-		icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
-		path: '/data-tables',
-		component: DataTables
-	},
-	{
-		name: 'Placeholder 3',
 		layout: '/editor',
 		path: '/profile',
 		icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
