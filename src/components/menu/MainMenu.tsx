@@ -62,6 +62,35 @@ export default function Banner(props: { [x: string]: any }) {
 			alert("There is no content to save.");
 		}
 	};	 
+
+	const handleOpen = () => {
+
+		const fileInput = document.getElementById("fileInput");
+		if (fileInput) {
+			fileInput.click();
+		}
+	};
+
+	const handleFileInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		
+		const file = event.target.files[0];
+	  
+		if (file) {
+			const reader = new FileReader();
+		
+			reader.onload = (e) => {
+				const fileContent = e.target.result;
+
+				const editorElement = document.getElementById("editor-main");
+				if (editorElement) {
+					editorElement.textContent = fileContent.toString();
+				}
+			};
+		
+			reader.readAsText(file);
+		}
+	};
+	  
 	
 	const handleClear = () => {
 
@@ -136,7 +165,10 @@ export default function Banner(props: { [x: string]: any }) {
 					_focus={{
 						bg: 'transparent'
 					}}
-					mb='10px'>
+					mb='10px'
+					onClick={handleOpen}
+					>
+					<input type="file" accept=".txt" id="fileInput" style={{ display: "none" }} onChange={handleFileInputChange}/>
 					<Flex align='center'>
 						<Icon as={AiOutlineFolderOpen} h='16px' w='16px' me='8px' />
 						<Text fontSize='sm' fontWeight='400'>
