@@ -41,6 +41,30 @@ export default function Banner(props: { [x: string]: any }) {
 	// Ellipsis modals
 	const { isOpen: isOpen1, onOpen: onOpen1, onClose: onClose1 } = useDisclosure();
 
+	const handleSave = (contentToSave: string | undefined) => {
+		if (contentToSave) {
+		  	const blob = new Blob([contentToSave], { type: "text/plain" });
+		  	if (contentToSave) {
+				const blob = new Blob([contentToSave], { type: "text/plain" });
+		
+				const fileName = "ed-eater.txt";
+		
+				const url = URL.createObjectURL(blob);
+	
+				const a = document.createElement("a");
+				a.href = url;
+				a.download = fileName;
+				document.body.appendChild(a);
+				a.click();
+	
+				URL.revokeObjectURL(url);
+				document.body.removeChild(a);
+		  	} else {
+				alert("There is no content to save.");
+		  	}
+		}
+	};	  
+
 	return (
 		<Menu isOpen={isOpen1} onClose={onClose1}>
 			<MenuButton
@@ -80,7 +104,12 @@ export default function Banner(props: { [x: string]: any }) {
 					_focus={{
 						bg: 'transparent'
 					}}
-					mb='10px'>
+					mb='10px'
+					onClick={() => {
+						const editorContent = document.getElementById("editor-main")?.innerText;
+						handleSave(editorContent);
+					  }}
+					>
 					<Flex align='center'>
 						<Icon as={AiOutlineSave} h='16px' w='16px' me='8px' />
 						<Text fontSize='sm' fontWeight='400'>

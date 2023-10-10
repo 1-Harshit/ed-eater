@@ -32,7 +32,7 @@ export default function EditorArea(props: Props) {
 				>
 					Editor Area
 				</Text>
-				<Menu />
+				<Menu handleSave={handleContentChange}/>
 			</Flex>
 			<Box
 				contentEditable
