@@ -13,6 +13,9 @@ import Card from "components/card/Card";
 import BoldButton from "components/button/BoldButton";
 import ItalicButton from "components/button/ItalicButton";
 import UnderlineButton from "components/button/UnderlineButton";
+import JustifyLeftButton from "components/button/JustifyLeftButton"
+import JustifyCenterButton from "components/button/JustifyCenterButton";
+import JustifyRightButton from "components/button/JustifyRightButton"
 import IconBox from "components/icons/IconBox";
 import { MdEditDocument } from "react-icons/md";
 
@@ -65,6 +68,9 @@ export default function Default(props: { name: string }) {
 							<BoldButton />
 							<ItalicButton />
 							<UnderlineButton />
+							<JustifyLeftButton />
+							<JustifyCenterButton />
+							<JustifyRightButton />
 						</SimpleGrid>
 					</StatNumber>
 				</Stat>
