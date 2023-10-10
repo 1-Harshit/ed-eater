@@ -21,4 +21,6 @@ const defaultData = (
 	</>
 );
 
+export const wordCount = 95;
+
 export default defaultData;

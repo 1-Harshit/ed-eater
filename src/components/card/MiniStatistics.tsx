@@ -29,6 +29,7 @@ export default function Default(props: {
 						{name}
 					</StatLabel>
 					<StatNumber
+						id="word-count"
 						color={textColor}
 						fontSize={{
 							base: '2xl'
