@@ -25,7 +25,16 @@ export default function Default() {
 			bg={boxBg}
 		>
 			<Button color={textColor} onClick={handleJustifyCenterClick}>
-				   <MdFormatAlignJustify/>
+				<IconBox
+					icon={
+						<Icon
+							w="18px"
+							h="18px"
+							as={MdFormatAlignCenter}
+							color={textColor}
+						/>
+					}
+				/>
 			</Button>
 		</Tooltip>
 	);
