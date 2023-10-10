@@ -61,7 +61,16 @@ export default function Banner(props: { [x: string]: any }) {
 		} else {
 			alert("There is no content to save.");
 		}
-	};	  
+	};	 
+	
+	const handleClear = () => {
+
+		const editorContent = document.getElementById("editor-main");
+		//Check for content
+		if (editorContent) {
+			editorContent.textContent = "";
+		}
+	};
 
 	return (
 		<Menu isOpen={isOpen1} onClose={onClose1}>
@@ -166,7 +175,8 @@ export default function Banner(props: { [x: string]: any }) {
 					}}
 					_focus={{
 						bg: 'transparent'
-					}}>
+					}}
+					onClick={handleClear}>
 					<Flex align='center'>
 						<Icon as={AiOutlineClear} h='16px' w='16px' me='8px' />
 						<Text fontSize='sm' fontWeight='400'>
