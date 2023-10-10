@@ -17,7 +17,12 @@ export default function Default() {
 			color={textColor}
 			bg={boxBg}
 		>
-			<Button fontStyle="italic" color={textColor} onClick={handleBoldClick}>
+			<Button
+				fontStyle="italic"
+				color={textColor}
+				onClick={handleBoldClick}
+				id="italic-button"
+			>
 				I
 			</Button>
 		</Tooltip>

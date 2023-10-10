@@ -18,10 +18,10 @@ export default function Default() {
 			bg={boxBg}
 		>
 			<Button
-				// underline
-                textDecoration="underline"
+				textDecoration="underline"
 				color={textColor}
 				onClick={handleUnderlineClick}
+				id="underline-button"
 			>
 				U
 			</Button>

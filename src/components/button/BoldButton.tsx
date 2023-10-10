@@ -17,7 +17,12 @@ export default function Default() {
 			color={textColor}
 			bg={boxBg}
 		>
-			<Button fontWeight="bold" color={textColor} onClick={handleBoldClick}>
+			<Button
+				fontWeight="bold"
+				color={textColor}
+				onClick={handleBoldClick}
+				id="bold-button"
+			>
 				B
 			</Button>
 		</Tooltip>
