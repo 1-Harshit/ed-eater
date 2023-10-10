@@ -14,11 +14,13 @@ import {
 } from '@chakra-ui/react';
 // Assets
 import {
+	AiOutlineSave,
+	AiOutlineFolderOpen,
+	AiOutlineExport,
+	AiOutlineClear
+} from 'react-icons/ai';
+import {
 	MdOutlineMoreHoriz,
-	MdOutlinePerson,
-	MdOutlineCardTravel,
-	MdOutlineLightbulb,
-	MdOutlineSettings
 } from 'react-icons/md';
 
 export default function Banner(props: { [x: string]: any }) {
@@ -80,9 +82,9 @@ export default function Banner(props: { [x: string]: any }) {
 					}}
 					mb='10px'>
 					<Flex align='center'>
-						<Icon as={MdOutlinePerson} h='16px' w='16px' me='8px' />
+						<Icon as={AiOutlineSave} h='16px' w='16px' me='8px' />
 						<Text fontSize='sm' fontWeight='400'>
-							Panel 1
+							Save
 						</Text>
 					</Flex>
 				</MenuItem>
@@ -100,9 +102,9 @@ export default function Banner(props: { [x: string]: any }) {
 					}}
 					mb='10px'>
 					<Flex align='center'>
-						<Icon as={MdOutlineCardTravel} h='16px' w='16px' me='8px' />
+						<Icon as={AiOutlineFolderOpen} h='16px' w='16px' me='8px' />
 						<Text fontSize='sm' fontWeight='400'>
-							Panel 2
+							Open
 						</Text>
 					</Flex>
 				</MenuItem>
@@ -120,9 +122,9 @@ export default function Banner(props: { [x: string]: any }) {
 					}}
 					mb='10px'>
 					<Flex align='center'>
-						<Icon as={MdOutlineLightbulb} h='16px' w='16px' me='8px' />
+						<Icon as={AiOutlineExport} h='16px' w='16px' me='8px' />
 						<Text fontSize='sm' fontWeight='400'>
-							Panel 3
+							Export As
 						</Text>
 					</Flex>
 				</MenuItem>
@@ -139,9 +141,9 @@ export default function Banner(props: { [x: string]: any }) {
 						bg: 'transparent'
 					}}>
 					<Flex align='center'>
-						<Icon as={MdOutlineSettings} h='16px' w='16px' me='8px' />
+						<Icon as={AiOutlineClear} h='16px' w='16px' me='8px' />
 						<Text fontSize='sm' fontWeight='400'>
-							Panel 4
+							Clear Editor
 						</Text>
 					</Flex>
 				</MenuItem>
