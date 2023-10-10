@@ -96,7 +96,7 @@ export default function TopCreatorTable(props: { tableData: any }) {
 			)
 		})
 	];
-	const [ data, setData ] = React.useState(() => [ ...defaultData ]);
+	const data = defaultData;
 	const table = useReactTable({
 		data,
 		columns,
