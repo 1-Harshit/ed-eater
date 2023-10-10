@@ -1,6 +1,6 @@
 // Chakra imports
 import { useColorModeValue, Button, Tooltip } from "@chakra-ui/react";
-import { MdAlignHorizontalRight } from "react-icons/md";
+import { MdFormatAlignRight } from "react-icons/md";
 // Custom components
 
 export default function Default() {
@@ -25,7 +25,7 @@ export default function Default() {
 			bg={boxBg}
 		>
 			<Button color={textColor} onClick={handleJustifyRightClick}>
-				   <MdAlignHorizontalRight/>
+				   <MdFormatAlignRight/>
 			</Button>
 		</Tooltip>
 	);
