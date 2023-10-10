@@ -42,26 +42,24 @@ export default function Banner(props: { [x: string]: any }) {
 	const { isOpen: isOpen1, onOpen: onOpen1, onClose: onClose1 } = useDisclosure();
 
 	const handleSave = (contentToSave: string | undefined) => {
+		//Check for content
 		if (contentToSave) {
-		  	const blob = new Blob([contentToSave], { type: "text/plain" });
-		  	if (contentToSave) {
-				const blob = new Blob([contentToSave], { type: "text/plain" });
-		
-				const fileName = "ed-eater.txt";
-		
-				const url = URL.createObjectURL(blob);
+			const blob = new Blob([contentToSave], { type: "text/plain" });
 	
-				const a = document.createElement("a");
-				a.href = url;
-				a.download = fileName;
-				document.body.appendChild(a);
-				a.click();
+			const fileName = "ed-eater.txt";
 	
-				URL.revokeObjectURL(url);
-				document.body.removeChild(a);
-		  	} else {
-				alert("There is no content to save.");
-		  	}
+			const url = URL.createObjectURL(blob);
+
+			const a = document.createElement("a");
+			a.href = url;
+			a.download = fileName;
+			document.body.appendChild(a);
+			a.click();
+
+			URL.revokeObjectURL(url);
+			document.body.removeChild(a);
+		} else {
+			alert("There is no content to save.");
 		}
 	};	  
 
