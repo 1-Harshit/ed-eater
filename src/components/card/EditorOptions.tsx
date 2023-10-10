@@ -15,7 +15,9 @@ import ItalicButton from "components/button/ItalicButton";
 import UnderlineButton from "components/button/UnderlineButton";
 import JustifyLeftButton from "components/button/JustifyLeftButton"
 import JustifyCenterButton from "components/button/JustifyCenterButton";
-import JustifyRightButton from "components/button/JustifyRightButton"
+import JustifyRightButton from "components/button/JustifyRightButton";
+import OrderedList from "components/button/OrderedList";
+import UnorderedList from "components/button/UnorderedList";
 import IconBox from "components/icons/IconBox";
 import { MdEditDocument } from "react-icons/md";
 
@@ -71,6 +73,8 @@ export default function Default(props: { name: string }) {
 							<JustifyLeftButton />
 							<JustifyCenterButton />
 							<JustifyRightButton />
+							<OrderedList />
+							<UnorderedList />
 						</SimpleGrid>
 					</StatNumber>
 				</Stat>
