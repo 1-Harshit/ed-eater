@@ -26,7 +26,7 @@ export default function Default() {
 			color={textColor}
 			bg={boxBg}
 		>
-			<Button color={textColor} onClick={handleAlignRightClick}>
+			<Button color={textColor} onClick={handleAlignRightClick} id="align-right-button">
 				<IconBox
 					icon={
 						<Icon w="18px" h="18px" as={MdFormatAlignRight} color={textColor} />
