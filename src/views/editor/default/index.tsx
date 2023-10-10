@@ -38,7 +38,7 @@ import { MdFileCopy } from "react-icons/md";
 import EditorArea from "views/editor/default/components/EditorArea";
 import { useState } from "react";
 
-export default function UserReports() {
+export default function EditorHome() {
 	// Chakra Color Mode
 	const brandColor = useColorModeValue("brand.500", "white");
 	const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");

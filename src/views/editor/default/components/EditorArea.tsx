@@ -44,6 +44,7 @@ export default function EditorArea(props: Props) {
 				id="editor-main"
 				onInput={handleContentChange}
 				onBlur={handleContentChange}
+				onFocus={handleContentChange}
 			>
 				{editorDefaultData}
 			</Box>

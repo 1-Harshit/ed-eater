@@ -26,7 +26,7 @@ export default function Default() {
 			color={textColor}
 			bg={boxBg}
 		>
-			<Button color={textColor} onClick={handleAlignCenterClick}>
+			<Button color={textColor} onClick={handleAlignCenterClick} id="align-center-button">
 				<IconBox
 					icon={
 						<Icon

@@ -26,7 +26,7 @@ export default function Default() {
 			color={textColor}
 			bg={boxBg}
 		>
-			<Button color={textColor} onClick={handleAlignJustifyClick}>
+			<Button color={textColor} onClick={handleAlignJustifyClick} id="align-justify-button">
 				<IconBox
 					icon={
 						<Icon
