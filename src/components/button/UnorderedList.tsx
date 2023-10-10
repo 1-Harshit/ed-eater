@@ -8,7 +8,13 @@ export default function Default() {
 	const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
 
 	const UnorderedList = () => {
-		document.execCommand("insertUnorderedList", true, "");
+		if (document.queryCommandSupported("insertUnorderedList")) {
+			document.execCommand("insertUnorderedList", false, null);
+		} else {
+			document.execCommand("styleWithCSS", false, "true");
+			document.execCommand("insertUnorderedList", false, null);
+			document.execCommand("styleWithCSS", false, "false");
+		}
 	};
 
 	return (

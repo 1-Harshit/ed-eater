@@ -8,7 +8,13 @@ export default function Default() {
 	const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
 
 	const OrderedList = () => {
-		document.execCommand("insertOrderedList", true, "");
+		if (document.queryCommandSupported("insertUnorderedList")) {
+			document.execCommand("insertOrderedList", false, null);
+		} else {
+			document.execCommand("styleWithCSS", false, "true");
+			document.execCommand("insertOrderedList", false, null);
+			document.execCommand("styleWithCSS", false, "false");
+		}
 	};
 
 	return (
