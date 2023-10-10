@@ -4,6 +4,8 @@ import Card from "components/card/Card";
 import Menu from "components/menu/MainMenu";
 import * as React from "react";
 // Assets
+import editorDefaultData from "views/editor/default/variables/editorDefaultData";
+
 interface Props {
 	handleContentChange: (e: React.SyntheticEvent<Element, Event>) => void;
 }
@@ -43,8 +45,7 @@ export default function EditorArea(props: Props) {
 				onInput={handleContentChange}
 				onBlur={handleContentChange}
 			>
-				lol <br />
-				<b>This is bold</b>
+				{editorDefaultData}
 			</Box>
 		</Card>
 	);
