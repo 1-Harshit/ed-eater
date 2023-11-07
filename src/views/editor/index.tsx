@@ -31,7 +31,7 @@ import {
 } from "@chakra-ui/react";
 // Assets
 // Custom components
-import MiniStatistics from "components/card/MiniStatistics";
+import MiniStatistics from "components/card/WordCountCard";
 import EditorOptions from "components/editor/EditorOptions";
 import IconBox from "components/icons/IconBox";
 import { MdFileCopy } from "react-icons/md";
