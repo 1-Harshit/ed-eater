@@ -108,7 +108,7 @@ export default function Banner(props: { [x: string]: any }) {
 	  
 	
 	const handleClear = () => {
-		
+
 		const editorContent = document.getElementById("editor-main");
 		editorContent.textContent = "";
 	};
@@ -153,7 +153,7 @@ export default function Banner(props: { [x: string]: any }) {
 						bg: 'transparent'
 					}}
 					mb='10px'
-					onClick={(handleSave)}
+					onClick={handleSave}
 					>
 					<Flex align='center'>
 						<Icon as={AiOutlineSave} h='16px' w='16px' me='8px' />
