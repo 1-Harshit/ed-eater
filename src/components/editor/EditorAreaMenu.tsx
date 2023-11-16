@@ -192,7 +192,7 @@ export default function Banner(props: { [x: string]: any }) {
 					<Flex align='center'>
 						<Icon as={AiOutlineExport} h='16px' w='16px' me='8px' />
 						<Text fontSize='sm' fontWeight='400'>
-							Export As
+							Export HTML
 						</Text>
 					</Flex>
 				</MenuItem>
