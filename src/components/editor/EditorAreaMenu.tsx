@@ -41,25 +41,29 @@ export default function Banner(props: { [x: string]: any }) {
 	// Ellipsis modals
 	const { isOpen: isOpen1, onOpen: onOpen1, onClose: onClose1 } = useDisclosure();
 
-	const handleSave = (contentToSave: string | undefined) => {
-		//Check for content
+	const handleDownload = (fileName: string, blob: Blob) => {
+
+		const url = URL.createObjectURL(blob);
+
+		const a = document.createElement("a");
+		a.href = url;
+		a.download = fileName;
+		document.body.appendChild(a);
+		a.click();
+
+		URL.revokeObjectURL(url);
+		document.body.removeChild(a);
+	}
+
+	const handleSave = () => {
+
+		const contentToSave = document.getElementById("editor-main")?.innerText;
+
 		if (contentToSave) {
 			const blob = new Blob([contentToSave], { type: "text/plain" });
-	
 			const fileName = "ed-eater.txt";
-	
-			const url = URL.createObjectURL(blob);
 
-			const a = document.createElement("a");
-			a.href = url;
-			a.download = fileName;
-			document.body.appendChild(a);
-			a.click();
-
-			URL.revokeObjectURL(url);
-			document.body.removeChild(a);
-		} else {
-			alert("There is no content to save.");
+			handleDownload(fileName, blob);
 		}
 	};	 
 
@@ -71,25 +75,15 @@ export default function Banner(props: { [x: string]: any }) {
 		}
 	};
 
-	const handleHTMLSave = (htmlToSave: string | undefined) => {
-		if (htmlToSave) {
-			const blob = new Blob([htmlToSave], { type: "text/html" });
-	
-			const fileName = "ed-eater.html";
-	
-			const url = URL.createObjectURL(blob);
+	const handleHTMLSave = () => {
 
-			const a = document.createElement("a");
-			a.href = url;
-			a.download = fileName;
-			document.body.appendChild(a);
-			a.click();
+		const htmlToSave = document.getElementById("editor-main")?.innerHTML;
 
-			URL.revokeObjectURL(url);
-			document.body.removeChild(a);
-		} else {
-			alert("There is no content to save as HTML.");
-		}
+		const blob = new Blob([htmlToSave], { type: "text/html" });
+		const fileName = "ed-eater.html";
+
+		handleDownload(fileName, blob);
+
 	}
 
 	const handleFileInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -114,12 +108,9 @@ export default function Banner(props: { [x: string]: any }) {
 	  
 	
 	const handleClear = () => {
-
+		
 		const editorContent = document.getElementById("editor-main");
-		//Check for content
-		if (editorContent) {
-			editorContent.textContent = "";
-		}
+		editorContent.textContent = "";
 	};
 
 	return (
@@ -162,10 +153,7 @@ export default function Banner(props: { [x: string]: any }) {
 						bg: 'transparent'
 					}}
 					mb='10px'
-					onClick={() => {
-						const editorContent = document.getElementById("editor-main")?.innerText;
-						handleSave(editorContent);
-					  }}
+					onClick={(handleSave)}
 					>
 					<Flex align='center'>
 						<Icon as={AiOutlineSave} h='16px' w='16px' me='8px' />
@@ -210,10 +198,7 @@ export default function Banner(props: { [x: string]: any }) {
 						bg: 'transparent'
 					}}
 					mb='10px'
-					onClick={() => {
-						const editorHTMLContent = document.getElementById("editor-main")?.innerHTML;
-						handleHTMLSave(editorHTMLContent);
-					  }}
+					onClick={handleHTMLSave}
 					>
 					<Flex align='center'>
 						<Icon as={AiOutlineExport} h='16px' w='16px' me='8px' />
