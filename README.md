@@ -12,6 +12,10 @@ The application, **ed-eater** is a text basic text editor build to demostrate th
 
 Deployed on gh-pages. Available at [https://ed-eater.harshitraj.xyz/](https://ed-eater.harshitraj.xyz/)
 
+## Configurations
+
+The file upload size limit is set to 4 MB. This value can be altered by changing the value of REACT_APP_MAX_INPUT_SIZE in the .env global environment configuration.
+
 ## Software Estimate
 
 Estimate document that describes what the software will do and how much time it will take to develop various aspect of it. The estimate document is a living document and will be updated as the project progresses.
