@@ -44,9 +44,11 @@ export default function EditorHome() {
 	};
 
 	const handleContentChange = (e: React.SyntheticEvent) => {
+
 		const target = e.target as HTMLDivElement;
-		console.log(target.innerHTML);
 		setWrordCountFromText(target.innerText);
+
+		localStorage.setItem("ed-eater-content", target.innerHTML);
 	};
 
 	useEffect(() => {
