@@ -13,12 +13,15 @@ import Card from "components/card/Card";
 import BoldButton from "components/button/BoldButton";
 import ItalicButton from "components/button/ItalicButton";
 import UnderlineButton from "components/button/UnderlineButton";
+import StrikeThroughButton from "components/button/StrikeThroughButton";
 import AlignLeftButton from "components/button/AlignLeftButton";
 import AlignCenterButton from "components/button/AlignCenterButton";
 import AlignRightButton from "components/button/AlignRightButton";
 import AlignJustifyButton from "components/button/AlignJustifyButton";
 import OrderedList from "components/button/OrderedList";
 import UnorderedList from "components/button/UnorderedList";
+import FontSizeMenu from "components/button/FontSizeMenu";
+import FontFaceMenu from "components/button/FontFaceMenu";
 import IconBox from "components/icons/IconBox";
 import { MdEditDocument } from "react-icons/md";
 
@@ -68,9 +71,12 @@ export default function Default(props: { name: string }) {
 							gap="20px"
 							mt="10px"
 						>
+							<FontFaceMenu />
+							<FontSizeMenu />
 							<BoldButton />
 							<ItalicButton />
 							<UnderlineButton />
+							<StrikeThroughButton />
 							<AlignLeftButton />
 							<AlignCenterButton />
 							<AlignRightButton />
