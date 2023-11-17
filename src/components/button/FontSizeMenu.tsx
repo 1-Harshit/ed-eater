@@ -21,7 +21,9 @@ export default function Default() {
 	const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
 
 	const handleFontSizeChange = (size: string) => {
-		document.execCommand("fontSize", true, size);
+		document.execCommand("styleWithCSS", false, "true");
+		document.execCommand("fontSize", false, size);
+		document.execCommand("styleWithCSS", false, "false");
 	};
 
 	const FontMenuOption = ({ index }: { index: number }) => {

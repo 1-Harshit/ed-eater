@@ -22,7 +22,9 @@ export default function Default() {
 	const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
 
 	const handleFontFaceChange = (name: string) => {
-		document.execCommand("fontName", true, name);
+		document.execCommand("styleWithCSS", false, "true");
+		document.execCommand("fontName", false, name);
+		document.execCommand("styleWithCSS", false, "false");
 	};
 
 	const FontFaceOption = ({ face }: { face: string }) => (
@@ -46,7 +48,12 @@ export default function Default() {
 				color={textColor}
 				bg={boxBg}
 			>
-				<MenuButton fontWeight="bold" color={textColor} as={IconButton} id="font-face-button">
+				<MenuButton
+					fontWeight="bold"
+					color={textColor}
+					as={IconButton}
+					id="font-face-button"
+				>
 					<IconBox
 						icon={
 							<Icon w="20px" h="20px" as={MdTextFormat} color={textColor} />
