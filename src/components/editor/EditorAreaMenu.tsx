@@ -88,25 +88,33 @@ export default function Banner(props: { [x: string]: any }) {
 		const file = event.target.files[0];
 	  
 		if (file) {
-			const reader = new FileReader();
-		
-			reader.onload = (e) => {
 
-				const fileContent = e.target.result;
-				const editorElement = document.getElementById("editor-main");
+			var inputLimit = Number(process.env.REACT_APP_MAX_INPUT_SIZE) || 4;
+			inputLimit = inputLimit * 1024 * 1024;
+			if (file.size <= inputLimit) {
 
-				if (editorElement) {
+				const reader = new FileReader();
+			
+				reader.onload = (e) => {
 
-					if (file.name.endsWith('.txt')) {
-						editorElement.textContent = fileContent.toString();
-					} else {
-						editorElement.innerHTML = fileContent.toString();
+					const fileContent = e.target.result;
+					const editorElement = document.getElementById("editor-main");
+
+					if (editorElement) {
+
+						if (file.name.endsWith('.txt')) {
+							editorElement.textContent = fileContent.toString();
+						} else {
+							editorElement.innerHTML = fileContent.toString();
+						}
+						editorElement.focus();
 					}
-					editorElement.focus();
-				}
-			};
-		
-			reader.readAsText(file);
+				};
+			
+				reader.readAsText(file);
+			} else {
+				alert('File limit exceeds the size limit');
+			}
 		}
 	};
 	  
