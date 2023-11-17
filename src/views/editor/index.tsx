@@ -25,24 +25,16 @@ import {
 	Box,
 	Grid,
 	GridItem,
-	Icon,
 	SimpleGrid,
-	useColorModeValue,
 } from "@chakra-ui/react";
-// Assets
+
 // Custom components
-import MiniStatistics from "components/card/WordCountCard";
+import WordCountCard from "components/card/WordCountCard";
 import EditorOptions from "components/editor/EditorOptions";
-import IconBox from "components/icons/IconBox";
-import { MdFileCopy } from "react-icons/md";
 import EditorArea from "components/editor/EditorArea";
 import { useState } from "react";
 
 export default function EditorHome() {
-	// Chakra Color Mode
-	const brandColor = useColorModeValue("brand.500", "white");
-	const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
-
 	const [wordCount, setWrordCount] = useState(0);
 
 	const handleContentChange = (e: React.SyntheticEvent) => {
@@ -62,20 +54,7 @@ export default function EditorHome() {
 					<EditorOptions name="Editor Options" />
 				</GridItem>
 				<GridItem colSpan={1}>
-					<MiniStatistics
-						startContent={
-							<IconBox
-								w="56px"
-								h="56px"
-								bg={boxBg}
-								icon={
-									<Icon w="32px" h="32px" as={MdFileCopy} color={brandColor} />
-								}
-							/>
-						}
-						name="Total Words"
-						value={wordCount}
-					/>
+					<WordCountCard value={wordCount} />
 				</GridItem>
 			</Grid>
 
