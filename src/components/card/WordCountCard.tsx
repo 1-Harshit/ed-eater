@@ -13,7 +13,7 @@ export default function Default(props: {value: number}) {
 	const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
 
 	return (
-		<Card py='15px'>
+		<Card py='15px' h='100%'>
 			<Flex my='auto' h='100%' align={{ base: 'center', xl: 'start' }} justify={{ base: 'center', xl: 'center' }}>
 				<IconBox
 					w="56px"

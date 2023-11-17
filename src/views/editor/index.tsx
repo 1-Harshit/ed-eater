@@ -50,10 +50,10 @@ export default function EditorHome() {
 				gap="20px"
 				mb="20px"
 			>
-				<GridItem colSpan={4}>
+				<GridItem colSpan={{ base: 5, lg: 4 }} minHeight="100px">
 					<EditorOptions name="Editor Options" />
 				</GridItem>
-				<GridItem colSpan={1}>
+				<GridItem colSpan={1} minHeight="100px" display={{ base: "none", lg: "block" }}>
 					<WordCountCard value={wordCount} />
 				</GridItem>
 			</Grid>
