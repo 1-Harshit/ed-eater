@@ -101,7 +101,8 @@ export default function Banner(props: { [x: string]: any }) {
 						editorElement.textContent = fileContent.toString();
 					} else {
 						editorElement.innerHTML = fileContent.toString();
-					}	
+					}
+					editorElement.focus();
 				}
 			};
 		
@@ -114,6 +115,7 @@ export default function Banner(props: { [x: string]: any }) {
 
 		const editorContent = document.getElementById("editor-main");
 		editorContent.textContent = "";
+		editorContent.focus();
 	};
 
 	return (

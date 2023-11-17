@@ -31,7 +31,7 @@ export default function Default(props: { name: string }) {
 	const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
 
 	return (
-		<Card py="15px">
+		<Card py="15px" h="100%">
 			<Flex
 				my="auto"
 				h="100%"
