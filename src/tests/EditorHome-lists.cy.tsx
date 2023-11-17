@@ -1,8 +1,8 @@
 import React from "react";
-import EditorHome from "./index";
-import { wordCount } from "../../variables/editorPlaceholder";
+import EditorHome from "../views/editor/index";
+import { wordCount } from "../variables/editorPlaceholder";
 import { ChakraProvider } from "@chakra-ui/react";
-import theme from "../../theme/theme";
+import theme from "../theme/theme";
 
 beforeEach(() => {
 	cy.viewport(1920, 1080);
@@ -13,9 +13,6 @@ beforeEach(() => {
 		</ChakraProvider>,
 	);
 
-	// focus on editor-area
-	cy.get("#editor-main").click();
-
 	// count number words in defaultData whihc is jsx element rendering
 	cy.get("#word-count").should("have.text", wordCount);
 
@@ -23,6 +20,8 @@ beforeEach(() => {
 	// click on cy.get('#menu-button-24')
 	cy.get("#menu-button-24").click();
 	cy.get("#menu-list-24-menuitem-22 > .css-70qvj9 > .chakra-text").click();
+
+	cy.get("#word-count").should("have.text", 0);
 
 	// editor should be empty
 	cy.get("#editor-main").should("have.text", "");
