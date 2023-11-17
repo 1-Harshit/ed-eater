@@ -40,7 +40,9 @@ export default function EditorHome() {
 	const handleContentChange = (e: React.SyntheticEvent) => {
 		const target = e.target as HTMLDivElement;
 		console.log(target.innerHTML);
-		setWrordCount(target.innerText.trim().split(/\s+/).length);
+		const text = target.innerText.trim();
+		if(text === "") setWrordCount(0);
+		else setWrordCount(text.split(/\s+/).length);
 	};
 
 	return (
