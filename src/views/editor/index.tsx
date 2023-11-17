@@ -32,16 +32,27 @@ import {
 import WordCountCard from "components/card/WordCountCard";
 import EditorOptions from "components/editor/EditorOptions";
 import EditorArea from "components/editor/EditorArea";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function EditorHome() {
 	const [wordCount, setWrordCount] = useState(0);
 
+	const setWrordCountFromText = (text: string) => {
+		text = text.trim();
+		const value = text === "" ? 0 : text.split(/\s+/).length;
+		setWrordCount(value);
+	};
+
 	const handleContentChange = (e: React.SyntheticEvent) => {
 		const target = e.target as HTMLDivElement;
 		console.log(target.innerHTML);
-		setWrordCount(target.innerText.trim().split(/\s+/).length);
+		setWrordCountFromText(target.innerText);
 	};
+
+	useEffect(() => {
+		const target = document.getElementById("editor-main") as HTMLDivElement;
+		setWrordCountFromText(target.innerText);
+	}, []);
 
 	return (
 		<Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
@@ -50,10 +61,10 @@ export default function EditorHome() {
 				gap="20px"
 				mb="20px"
 			>
-				<GridItem colSpan={4}>
+				<GridItem colSpan={{ base: 5, lg: 4 }} minHeight="100px">
 					<EditorOptions name="Editor Options" />
 				</GridItem>
-				<GridItem colSpan={1}>
+				<GridItem colSpan={1} minHeight="100px" display={{ base: "none", lg: "block" }}>
 					<WordCountCard value={wordCount} />
 				</GridItem>
 			</Grid>
