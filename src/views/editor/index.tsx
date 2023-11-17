@@ -43,17 +43,12 @@ export default function EditorHome() {
 		setWrordCount(value);
 	};
 
-	const saveToLocalStorage = (currentContent: string) => {
-		localStorage.setItem("ed-eater-content", currentContent);
-	};
-
 	const handleContentChange = (e: React.SyntheticEvent) => {
 
 		const target = e.target as HTMLDivElement;
 		setWrordCountFromText(target.innerText);
 
-		const newContent = target.innerHTML;
-		saveToLocalStorage(newContent);
+		localStorage.setItem("ed-eater-content", target.innerHTML);
 	};
 
 	useEffect(() => {
