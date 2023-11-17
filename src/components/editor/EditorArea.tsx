@@ -15,6 +15,14 @@ export default function EditorArea(props: Props) {
 	const { handleContentChange } = props;
 	const textColor = useColorModeValue("secondaryGray.900", "white");
 
+	React.useEffect(() => {
+		const savedContent = localStorage.getItem("ed-eater-content");
+
+		if (savedContent) {
+			document.getElementById("editor-main")!.innerHTML = savedContent;
+		}
+	}, []);
+
 	return (
 		<Card
 			flexDirection="column"

@@ -43,12 +43,19 @@ export default function EditorHome() {
 	const brandColor = useColorModeValue("brand.500", "white");
 	const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
 
-	const [wordCount, setWrordCount] = useState(0);
+	const [wordCount, setWordCount] = useState(0);
+
+	const saveToLocalStorage = (currentContent: string) => {
+		localStorage.setItem("ed-eater-content", currentContent);
+	};
 
 	const handleContentChange = (e: React.SyntheticEvent) => {
+
 		const target = e.target as HTMLDivElement;
-		console.log(target.innerHTML);
-		setWrordCount(target.innerText.trim().split(/\s+/).length);
+		setWordCount(target.innerText.trim().split(/\s+/).length);
+
+		const newContent = target.innerHTML;
+		saveToLocalStorage(newContent);
 	};
 
 	return (
