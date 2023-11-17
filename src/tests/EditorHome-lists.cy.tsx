@@ -17,9 +17,9 @@ beforeEach(() => {
 	cy.get("#word-count").should("have.text", wordCount);
 
 	// clear editor
-	// click on cy.get('#menu-button-24')
-	cy.get("#menu-button-24").click();
-	cy.get("#menu-list-24-menuitem-22 > .css-70qvj9 > .chakra-text").click();
+	// click on cy.get('#menu-button-editor-area-menu')
+	cy.get("#menu-button-editor-area-menu").click();
+	cy.get("#menu-list-editor-area-menu-menuitem-42 > .css-70qvj9 > .chakra-text").click();
 
 	cy.get("#word-count").should("have.text", 0);
 

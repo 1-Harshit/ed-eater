@@ -127,7 +127,7 @@ export default function Banner(props: { [x: string]: any }) {
 	};
 
 	return (
-		<Menu isOpen={isOpen1} onClose={onClose1}>
+		<Menu isOpen={isOpen1} onClose={onClose1} id="editor-area-menu">
 			<MenuButton
 				alignItems='center'
 				justifyContent='center'
@@ -167,6 +167,7 @@ export default function Banner(props: { [x: string]: any }) {
 					}}
 					mb='10px'
 					onClick={handleSave}
+					id="save-button"
 					>
 					<Flex align='center'>
 						<Icon as={AiOutlineSave} h='16px' w='16px' me='8px' />
@@ -189,6 +190,7 @@ export default function Banner(props: { [x: string]: any }) {
 					}}
 					mb='10px'
 					onClick={handleOpen}
+					id="open-button"
 					>
 					<input type="file" accept=".txt, .html" id="fileInput" style={{ display: "none" }} onChange={handleFileInputChange}/>
 					<Flex align='center'>
@@ -212,6 +214,7 @@ export default function Banner(props: { [x: string]: any }) {
 					}}
 					mb='10px'
 					onClick={handleHTMLSave}
+					id="export-button"
 					>
 					<Flex align='center'>
 						<Icon as={AiOutlineExport} h='16px' w='16px' me='8px' />
@@ -232,7 +235,9 @@ export default function Banner(props: { [x: string]: any }) {
 					_focus={{
 						bg: 'transparent'
 					}}
-					onClick={handleClear}>
+					onClick={handleClear}
+					id="clear-button"
+					>
 					<Flex align='center'>
 						<Icon as={AiOutlineClear} h='16px' w='16px' me='8px' />
 						<Text fontSize='sm' fontWeight='400'>
