@@ -10,14 +10,15 @@ import {
 	MenuList,
 	Text,
 	useColorModeValue,
-	useColorMode
+	useColorMode,
+	Link
 } from '@chakra-ui/react';
 // Custom Components
 import { ItemContent } from 'components/navbar/ItemContent';
 import PropTypes from 'prop-types';
 // Assets
 import { MdNotificationsNone } from 'react-icons/md';
-import { IoMdMoon, IoMdSunny } from 'react-icons/io';
+import { IoLogoGithub, IoMdMoon, IoMdSunny } from 'react-icons/io';
 export default function HeaderLinks(props: { secondary: boolean }) {
 	const { secondary } = props;
 	const { colorMode, toggleColorMode } = useColorMode();
@@ -41,6 +42,25 @@ export default function HeaderLinks(props: { secondary: boolean }) {
 			p='10px'
 			borderRadius='30px'
 			boxShadow={shadow}>
+			<Link
+				bg='transparent'
+				p='0px'
+				minW='unset'
+				minH='unset'
+				h='18px'
+				w='max-content'
+				href='https://github.com/1-Harshit/ed-eater'
+				isExternal
+				target='_blank'
+				>
+				<Icon
+					me='10px'
+					h='18px'
+					w='18px'
+					color={navbarIcon}
+					as={IoLogoGithub}
+				/>
+			</Link>
 			<Menu>
 				<MenuButton p='0px'>
 					<Icon mt='6px' as={MdNotificationsNone} color={navbarIcon} w='18px' h='18px' me='10px' />
